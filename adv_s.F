@@ -80,7 +80,7 @@
 !------------------------------------------------------------------------------!
 
    FACT = 0.0_SP
-   FM1  = 1.0_SP
+   FM1  = 1.0_SP 
    IF(HORZMIX == 'closure') THEN
      FACT = 1.0_SP
      FM1  = 0.0_SP
@@ -433,10 +433,10 @@
        ENDIF
 #endif
 	   
-	    !             ox' B
+	      !             ox' B
         !             |                      !for triangle ox', the ox'-->c is another xflux for iA and iB, because it is positive to the right hand side of ox'-->c
-	    !                                    !ox'-->C and ox-->c have opposite sign of flux (so if you have transect A--B it is made of two TCE edges 
-	    !             |                 !To rar
+	      !                                    !ox'-->C and ox-->c have opposite sign of flux (so if you have transect A--B it is made of two TCE edges 
+	      !             |                 !To rar
         !FIJ1         |         FIJ2
         !A            V         B       y
         ! o--------- c---------o       ^
