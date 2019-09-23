@@ -78,7 +78,7 @@ BLOCK = F
 HORZMIX = closure 
 HORCON  = 0.1000E+0  ! if "closure" , HORCON is a scalar multiplied to the viscosity (VISCOFH) calculated internally in viscofh.Fi
                      ! if "constant", HORCON is the horizontal eddy diffusivity, its unit is m^2/s. 
-HPRNU   = 1.000E+0   ! horizontal diffusion coefficient:
+HPRNU   = 1.000E+0   ! horizontal diffusion coefficient: horizontal prandtl number
 
 VERTMIX = closure
 UMOL    = 1.000E-6

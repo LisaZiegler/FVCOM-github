@@ -139,7 +139,7 @@
 
 #          if defined (TS_OBC)
               IF(IERR.NE.-1)THEN
-               TF1(J,K) = T1(J,K) - ALPHA_SERIES_OBC*RAMP_TS*(T1(J,K)-TOBC_TMP(I,K))   !T at OBC is equal to T specified by the imnput file 
+               TF1(J,K) = T1(J,K) - ALPHA_SERIES_OBC*RAMP_TS*(T1(J,K)-TOBC_TMP(I,K))   !T at OBC is equal to T specified by the input file 
                ! write(*,*)'ALPHA_SERIES_OBC is:', ALPHA_SERIES_OBC,'(i,j,k)=',I,J,K 
               ELSE
                 TF1(J,K) = T1(J,K)
@@ -172,7 +172,8 @@
          XFLUX2D=XFLUX2D+XFLUX_OBC(I,K)             !*DZ(J,K)
        END DO
  
-       IF(UARD_OBCN(I) > 0.0_SP) THEN
+       IF(UARD_OBCN(I) > 0.0_SP) THEN   !when UARD_OBCN >0, flow is going out to ocean at OBC, no nudging of Salinity, basically calculate  salinity based on diffusion and advection from inside of domain
+                                        !
          TMP=XFLUX2D+S2D*UARD_OBCN(I)
          S2D_OBC=(S2D*DT(J)-TMP*DTI/ART1(J))/D(J)
 
@@ -212,7 +213,7 @@
            IF(SF1(J,K)-SMAX > 0.0_SP) SF1(J,K) = SMAX
 
          END DO
-        ELSE
+        ELSE ! nudging to OBC salinity if the UARD_OBCN is negative (flow going from ocean into estuary)
          DO K=1,KBM1
 
 #          if defined (TS_OBC)
